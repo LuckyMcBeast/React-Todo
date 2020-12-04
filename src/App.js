@@ -1,9 +1,11 @@
 import React from 'react';
 
+import TodoForm from './components/TodoForm'
+
 
 const todoList = [
   {
-    text: "Make a Todo List",
+    task: "Make a Todo List",
     id : `${Date.now()}`,
     complete: false
   }
@@ -25,7 +27,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <h3>{this.state.todoList[0].text}</h3>
+        <TodoForm></TodoForm>
+        <h3>{this.state.todoList[0].task}</h3>
       </div>
     );
   }
