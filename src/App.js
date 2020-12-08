@@ -22,12 +22,25 @@ class App extends React.Component {
     };
   }
   
+  addTask = (e, item) => {
+    console.log("Adding Todo Task");
+    e.preventDefault();
+    const newTask = {
+      task: item,
+      id : `${Date.now()}`,
+      complete: false
+    };
+    this.setState({
+      ...this.state,
+      todoList: [...this.state.todoList, newTask]
+    });
+  };
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm></TodoForm>
+        <TodoForm addTask={this.addTask}/>
         <h3>{this.state.todoList[0].task}</h3>
       </div>
     );
